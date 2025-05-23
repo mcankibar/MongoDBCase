@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewData["Title"] = "GetAllProducts";
+    Layout = "~/Views/Admin/Shared/_AdminLayout.cshtml";
+}
+
+
+@model List<ResultProductDTO>
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+    <br />
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Ürün Adı</th>
+                <th>Ürün Görselleri</th>
+                <th>Sil</th>
+                <th>Güncelle</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ProductId</td>
+                    <td>@item.ProductName</td>
+                    <td>
+                        <div style="display:flex; gap:10px;">
+                            @foreach (var imageUrl in item.ProductImages)
+                            {
+                                <img src="@imageUrl" alt="Görsel" width="150" height="150" style="object-fit: contain; border-radius: 5px;" />
+                            }
+                        </div>
+                    </td>
+                    <td>
+                        <a href="/Admin/DeleteProduct/@item.ProductId" class="btn btn-danger">Sil</a>
+                    </td>
+                    <td>
+                        <a href="/Admin/UpdateProduct/@item.ProductId" class="btn btn-info">Güncelle</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a href="/Admin/CreateProduct/" class="btn btn-primary">Yeni Ürün Girişi</a>
+</div>
+
+

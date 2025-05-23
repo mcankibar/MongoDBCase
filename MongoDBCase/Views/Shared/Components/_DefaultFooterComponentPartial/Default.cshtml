@@ -1,0 +1,45 @@
+﻿
+<footer class="bg3 p-t-75 p-b-40 text-white">
+	<div class="container">
+		<div class="row justify-content-center text-center">
+			<div class="col-md-6 col-lg-4 p-b-50">
+				<h4 class="stext-301 cl0 p-b-30">
+					Subscribe to Our Newsletter
+				</h4>
+
+				<form method="post" asp-controller="Home" asp-action="Subscribe">
+					<div class="wrap-input1 w-full p-b-4">
+						<input class="input1 bg-dark text-white rounded p-2 w-100 border border-secondary"
+							   type="email"
+							   name="email"
+							   placeholder="you@example.com"
+							   required />
+					</div>
+
+					<div class="p-t-18 text-center">
+						<button type="submit" class="stext-101 cl0 bg1 bor1 hov-btn1 p-lr-25 trans-04 rounded shadow-sm">
+							Subscribe
+						</button>
+					</div>
+				</form>
+
+			</div>
+		</div>
+
+		<hr class="bg-secondary">
+
+		<div class="text-center p-t-20">
+			<div class="d-flex justify-content-center flex-wrap gap-2">
+				<a href="#"><img src="/cozastore-master/images/icons/icon-pay-01.png" alt="Pay" style="height: 30px;"></a>
+				<a href="#"><img src="/cozastore-master/images/icons/icon-pay-02.png" alt="Pay" style="height: 30px;"></a>
+				<a href="#"><img src="/cozastore-master/images/icons/icon-pay-03.png" alt="Pay" style="height: 30px;"></a>
+				<a href="#"><img src="/cozastore-master/images/icons/icon-pay-04.png" alt="Pay" style="height: 30px;"></a>
+				<a href="#"><img src="/cozastore-master/images/icons/icon-pay-05.png" alt="Pay" style="height: 30px;"></a>
+			</div>
+
+			<p class="mt-4 small text-secondary">
+				&copy; @DateTime.Now.Year Your Company. All rights reserved.
+			</p>
+		</div>
+	</div>
+</footer>

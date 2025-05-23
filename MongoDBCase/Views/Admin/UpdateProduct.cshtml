@@ -1,0 +1,101 @@
+﻿
+@{
+    ViewData["Title"] = "UpdateProduct";
+    Layout = "~/Views/Admin/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+@model GetProductByIdDTO
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+    <br />
+    <form method="post">
+        <input type="hidden" asp-for="ProductId" class="form-control" />
+        <label>Ürün Adı</label>
+        <input type="text" asp-for="ProductName" class="form-control" />
+        <br />
+
+        <label>Ürün Fiyatı</label>
+        <input type="number" asp-for="ProductPrice" class="form-control" />
+        <br />
+
+        <label>Ürün Açıklaması</label>
+        <input type="text" asp-for="ProductDescription" class="form-control" />
+        <br />
+
+        <label>Ürün Kategorisi</label>
+        <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.Categories">
+
+            <option value="">Kategori Seçiniz</option>
+        </select>
+
+        <br />
+
+        <label>Mevcut Ürün Görselleri</label>
+        <div id="existing-images" class="mb-3" style="display: flex; flex-wrap: wrap; gap: 10px;">
+            @for (int i = 0; i < Model.ProductImages.Count; i++)
+            {
+                <div class="image-wrapper position-relative d-inline-block me-2 mb-2" style="width: 100px; height: 100px;">
+                    <img src="@Model.ProductImages[i]"
+                         class="img-thumbnail w-100 h-100"
+                         style="object-fit: contain; background-color: #fff;" />
+
+                    <input type="hidden" name="ProductImages" value="@Model.ProductImages[i]" />
+
+                    <button type="button"
+                            onclick="removeImage(this)"
+                            class="btn-close position-absolute"
+                            style="top: 2px; right: 2px; background-color: red; opacity: 1; z-index: 10;">
+                    </button>
+                </div>
+            }
+
+        </div>
+
+        <label>Yeni Görsel Ekle</label>
+        <div id="image-inputs">
+            <input type="text" name="ProductImages" class="form-control mb-2" placeholder="Görsel URL'si girin" />
+        </div>
+        <button type="button" class="btn btn-secondary mb-3" onclick="addImageInput()">+ Görsel Ekle</button>
+
+        <br />
+        <button type="submit" class="btn btn-success">Güncelle</button>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        function addImageInput() {
+            const container = document.getElementById("image-inputs");
+            const input = document.createElement("input");
+            input.type = "text";
+            input.name = "ProductImages";
+            input.className = "form-control mb-2";
+            input.placeholder = "Görsel URL'si girin";
+            container.appendChild(input);
+        }
+
+        function removeImage(button) {
+            const wrapper = button.closest('.image-wrapper');
+            if (wrapper) wrapper.remove();
+        }
+
+        // Form submit olmadan önce boş görsel URL'lerini temizle
+        document.querySelector("form").addEventListener("submit", function (e) {
+            const inputs = document.querySelectorAll("input[name='ProductImages']");
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    input.remove();
+                }
+            });
+        });
+    </script>
+}
+
+
+
+

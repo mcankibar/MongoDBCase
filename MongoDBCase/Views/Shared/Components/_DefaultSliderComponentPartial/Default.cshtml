@@ -1,0 +1,52 @@
+﻿@model List<ResultSliderDTO>
+
+<section class="section-slide">
+	<div class="wrap-slick1">
+		<div class="slick1">
+			@foreach (var item in Model)
+			{
+				<div class="item-slick1" style="background-image: url(@item.SliderImageUrl); background-size: cover; background-position: center;">
+					<div class="container h-full">
+						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
+
+							<div class="bg-dark-overlay p-3 rounded" style="max-width: 600px;">
+								<div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
+									<span class="ltext-101 cl-white text-shadow-sm">
+										@item.SliderTitle
+									</span>
+								</div>
+
+								<div class="layer-slick1 animated visible-false" data-appear="fadeInUp" data-delay="800">
+									<h2 class="ltext-201 cl-white text-shadow-sm p-t-19 p-b-10">
+										@item.SliderSubTitle
+									</h2>
+								</div>
+
+								<div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1600">
+									<a href="product.html" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+										Satın Al
+									</a>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			}
+		</div>
+	</div>
+</section>
+
+<style>
+	.cl-white {
+		color: white;
+	}
+
+	.text-shadow-sm {
+		text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+	}
+
+	.bg-dark-overlay {
+		background-color: rgba(0, 0, 0, 0.5);
+	}
+</style>

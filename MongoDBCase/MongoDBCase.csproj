@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\materially-free-react-admin-template-1.0.0\.github\workflows\prod.yml" />
+    <None Include="wwwroot\materially-free-react-admin-template-1.0.0\.github\workflows\stage.yml" />
+    <None Include="wwwroot\materially-free-react-admin-template-1.0.0\.yarn\install-state.gz" />
+    <None Include="wwwroot\sidebar-03\.DS_Store" />
+    <None Include="wwwroot\sidebar-03\css\.DS_Store" />
+    <None Include="wwwroot\sidebar-03\css\bootstrap\.DS_Store" />
+    <None Include="wwwroot\sidebar-03\css\bootstrap\mixins\.DS_Store" />
+    <None Include="wwwroot\sidebar-03\fonts\.DS_Store" />
+    <None Include="wwwroot\sidebar-03\images\.DS_Store" />
+    <None Include="wwwroot\sidebar-03\js\.DS_Store" />
+    <None Include="wwwroot\sidebar-03\scss\.DS_Store" />
+    <None Include="wwwroot\sidebar-03\scss\bootstrap\.DS_Store" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="14.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
+    <PackageReference Include="MongoDB.Bson" Version="3.4.0" />
+    <PackageReference Include="MongoDB.Driver" Version="3.4.0" />
+  </ItemGroup>
+
+</Project>

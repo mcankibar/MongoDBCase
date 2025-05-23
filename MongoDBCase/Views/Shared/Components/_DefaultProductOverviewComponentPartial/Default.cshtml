@@ -1,0 +1,239 @@
+﻿@model ProductOverviewViewModel
+
+<section class="bg0 p-t-23 p-b-140">
+    <div class="container">
+        <div class="p-b-10">
+            <h3 class="ltext-103 cl5">
+                Ürün Önizleme
+            </h3>
+        </div>
+
+        <div class="flex-w flex-sb-m p-b-52">
+            <div class="flex-w flex-l-m filter-tope-group m-tb-10">
+                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
+                    Tüm Ürünler
+                </button>
+
+                @foreach (var item in Model.Categories)
+                {
+                    <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".@item.CategoryName.ToLower().Replace(" ", "-")">
+                        @item.CategoryName
+                    </button>
+                }
+            </div>
+        </div>
+
+        <div class="row isotope-grid">
+            @foreach (var product in Model.Products)
+            {
+                var category = Model.Categories.FirstOrDefault(x => x.CategoryId == product.CategoryId);
+                var categoryClass = category?.CategoryName?.ToLower().Replace(" ", "-") ?? "uncategorized";
+
+                <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item @categoryClass">
+                    
+                    <div class="block2">
+                        <div class="block2-pic hov-img0">
+                            <img src="@product.ProductImages.FirstOrDefault()" alt="IMG-PRODUCT" />
+
+                            <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1" data-product-id="@product.ProductId">
+                                Quick View
+                            </a>
+
+                        </div>
+
+                        <div class="block2-txt flex-w flex-t p-t-14">
+                            <div class="block2-txt-child1 flex-col-l ">
+                                <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                    @product.ProductName
+                                </a>
+
+                                <span class="stext-105 cl3">
+                                    @product.ProductPrice ₺
+                                </span>
+                            </div>
+
+                            <div class="block2-txt-child2 flex-r p-t-3">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        
+        <div class="flex-c-m flex-w w-full p-t-45">
+            <a href="#" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
+                Load More
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<div class="wrap-modal1 js-modal1 p-t-60 p-b-20" style="display:none;">
+    <div class="container">
+        <div class="bg0 p-t-60 p-b-30 p-lr-15-lg how-pos3-parent" id="quick-view-content">
+            <button class="how-pos3 hov3 trans-04 js-hide-modal1">
+                <i class="zmdi zmdi-close"></i>
+            </button>
+
+
+
+
+        </div>
+    </div>
+</div>
+
+<style>
+    .wrap-modal1 {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90vw;
+        max-width: 1100px;
+        max-height: 90vh;
+        overflow-y: auto;
+        border-radius: 10px;
+        z-index: 1050;
+        background: #fff;
+        padding: 20px 30px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .overlay-modal1 {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 1040;
+    }
+
+    #quick-view-content {
+        width: 100%;
+        min-height: 400px; /* İçerik küçük kalmasın */
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+        /* İçerikteki row için düzen */
+        #quick-view-content .row {
+            width: 100%;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #quick-view-content .col-md-6 {
+            flex: 0 0 50%;
+            max-width: 50%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+    /* Ürün resmi özel */
+    .product-image {
+        max-width: 100%;
+        max-height: 400px;
+        object-fit: contain;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+    }
+
+        .product-image:hover {
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+
+    /* Buton */
+    .btn-primary {
+        background-color: #007bff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1rem;
+        cursor: pointer;
+        border-radius: 4px;
+        margin-top: 20px;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+    /* Ürün adı ve fiyat */
+    .product-name {
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    .product-price {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #e74c3c;
+        margin-bottom: 15px;
+    }
+
+    /* Kategori listesi */
+    .product-specs {
+        list-style: none;
+        padding-left: 0;
+        font-size: 0.95rem;
+    }
+
+        .product-specs li {
+            margin-bottom: 8px;
+        }
+
+    /* Slick slider içinde pozisyon ayarları */
+    .wrap-pic-w {
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    .how-pos1 {
+        top: 10px;
+        right: 10px;
+        position: absolute;
+        z-index: 10;
+    }
+
+
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+       $(document).ready(function () {
+        $('.js-show-modal1').on('click', function (e) {
+            e.preventDefault();
+            var productId = $(this).data('product-id');
+
+            $.ajax({
+                url: '/Home/QuickViewComponent',
+                type: 'GET',
+                data: { productId: productId },
+                success: function (html) {
+                    $('#quick-view-content').html(html);  // Modal içeriğini doldur
+                    $('.js-modal1').fadeIn();             // Modal'ı aç
+                },
+                error: function () {
+                    alert("Bir hata oluştu. Lütfen daha sonra tekrar deneyin.");
+                }
+            });
+        });
+
+        $('.js-hide-modal1').on('click', function () {
+            $('.js-modal1').fadeOut();
+        });
+    });
+
+</script>
+
+
+

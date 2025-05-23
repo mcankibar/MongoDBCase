@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewData["Title"] = "CreateProduct";
+    Layout = "~/Views/Admin/Shared/_AdminLayout.cshtml";
+}
+
+@model CreateProductDTO
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+    <br />
+    <form method="post">
+        <label>Ürün Adı</label>
+        <input type="text" asp-for="ProductName" class="form-control" />
+        <br />
+
+        <label>Ürün Fiyatı</label>
+        <input type="number" asp-for="ProductPrice" class="form-control" />
+        <br />
+
+        <label>Ürün Açıklaması</label>
+        <input type="text" asp-for="ProductDescription" class="form-control" />
+        <br />
+
+        <label>Ürün Kategorisi</label>
+        <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.Categories">
+
+            <option value="">Kategori Seçiniz</option>
+        </select>
+
+        <br />
+
+        <label>Ürün Görselleri</label>
+        <div id="image-inputs">
+            <input type="text" name="ProductImages" class="form-control mb-2" placeholder="Görsel URL'si girin" />
+        </div>
+        <button type="button" class="btn btn-secondary mb-3" onclick="addImageInput()">+ Görsel Ekle</button>
+
+        <br />
+        <button type="submit" class="btn btn-success">Ürün Ekle</button>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        function addImageInput() {
+            const container = document.getElementById("image-inputs");
+            const input = document.createElement("input");
+            input.type = "text";
+            input.name = "ProductImages";
+            input.className = "form-control mb-2";
+            input.placeholder = "Görsel URL'si girin";
+            container.appendChild(input);
+        }
+    </script>
+}
+
+

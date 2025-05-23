@@ -1,0 +1,31 @@
+﻿@model GetCategoryByIdDTO
+@{
+    ViewData["Title"] = "UpdateCategory";
+    Layout = "~/Views/Admin/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+    <br />
+    <form method="post">
+        <input type="hidden" asp-for="CategoryId" class="form-control" />
+        <label>Kategori Adı</label>
+        <input type="text" asp-for="CategoryName" class="form-control" />
+        <br />
+
+
+
+        <label>Kategori Görseli</label>
+        <input type="text" asp-for="ImageUrl" class="form-control" />
+        <br />
+
+        <button class="btn btn-info">Kategori Güncelle</button>
+    </form>
+</div>
+
+
+

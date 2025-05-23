@@ -1,0 +1,28 @@
+﻿@model CreateSliderDTO
+
+
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+    <br />
+    <form method="post">
+        <label>Slider Başlığı</label>
+        <input type="text" asp-for="SliderTitle" class="form-control" />
+        <br />
+
+        <label>Slider Alt Başlığı</label>
+        <input type="text" asp-for="SliderSubTitle" class="form-control" />
+        <br />
+       
+
+        <label>Kategori Görseli</label>
+        <input type="text" asp-for="SliderImageUrl" class="form-control" />
+        <br />
+
+        <button class="btn btn-info">Slider Ekle</button>
+    </form>
+</div>
+
+
+

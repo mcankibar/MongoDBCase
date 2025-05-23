@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewData["Title"] = "GetAllSliders";
+    Layout = "~/Views/Admin/Shared/_AdminLayout.cshtml";
+}
+
+
+@model List<ResultSliderDTO>
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+    <br />
+    <table class="table table-hover">
+        <tr>
+            <th>#</th>
+            <th>Slider Başlığı</th>
+            <th>Slider Alt Başlığı</th>
+            <th>Slider Görseli</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.SliderId</td>
+                <td>@item.SliderTitle</td>
+                <td>@item.SliderSubTitle</td>
+                <td><img src="@item.SliderImageUrl" alt="Görsel" width="150" height="150" style="object-fit: contain; border-radius: 5px;" /></td>
+                <td><a href="/Admin/DeleteSlider/@item.SliderId" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Admin/UpdateSlider/@item.SliderId" class="btn btn-info">Güncelle</a></td>
+            </tr>
+
+
+        }
+
+    </table>
+    <a href="/Admin/CreateSlider/" class="btn btn-primary">Yeni Slider Oluştur</a>
+</div>
+

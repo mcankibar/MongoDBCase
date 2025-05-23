@@ -1,0 +1,204 @@
+﻿@model GetProductByIdDTO
+
+ 
+
+<div class="row">
+    <div class="col-md-6 col-lg-7 p-b-30">
+        <div class="p-l-25 p-r-30 p-lr-0-lg">
+            <div class="wrap-slick3 flex-sb flex-w">
+                <div class="wrap-slick3-dots"></div>
+                <div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
+
+                <div class="slick3 gallery-lb">
+                    @foreach (string item in Model.ProductImages)
+                    {
+                        <div class="item-slick3" data-thumb="@item">
+                            <div class="wrap-pic-w pos-relative">
+                                <img src="@item" alt="IMG-PRODUCT" class="product-image" />
+
+                                <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="@item" target="_blank" title="Full View">
+                                    <i class="fa fa-expand"></i>
+                                </a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-5 p-b-30">
+        <div class="p-r-50 p-t-5 p-lr-0-lg">
+            <h4 class="mtext-105 cl2 js-name-detail p-b-14">
+                @Model.ProductName
+            </h4>
+
+            <span class="mtext-106 cl2">
+                @Model.ProductPrice.ToString("C2")
+            </span>
+
+            <p>
+                @Model.ProductDescription
+
+            </p>
+
+            <!--  -->
+            <div class="p-t-33">
+                
+
+                <div class="flex-w flex-r-m p-b-10">
+                    <div class="size-204 flex-w flex-m respon6-next">
+                        <div class="wrap-num-product flex-w m-r-20 m-tb-10">
+                            <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
+                                <i class="fs-16 zmdi zmdi-minus"></i>
+                            </div>
+
+                            <input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product" value="1">
+
+                            <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
+                                <i class="fs-16 zmdi zmdi-plus"></i>
+                            </div>
+                        </div>
+
+                        <button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+                            Add to cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!--  -->
+            <div class="flex-w flex-m p-l-100 p-t-40 respon7">
+                <div class="flex-m bor9 p-r-10 m-r-11">
+                    <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100" data-tooltip="Add to Wishlist">
+                        <i class="zmdi zmdi-favorite"></i>
+                    </a>
+                </div>
+
+                <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Facebook">
+                    <i class="fa fa-facebook"></i>
+                </a>
+
+                <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Twitter">
+                    <i class="fa fa-twitter"></i>
+                </a>
+
+                <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Google Plus">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<style>
+    .product-image {
+        max-width: 100%;
+        max-height: 320px; /* biraz küçültüldü */
+        object-fit: contain;
+        border-radius: 10px; /* biraz daha yuvarlak */
+        box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+        transition: transform 0.3s ease;
+    }
+
+        .product-image:hover {
+            transform: scale(1.07);
+            cursor: pointer;
+        }
+
+    .wrap-pic-w {
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+        padding: 10px; /* görseller arası boşluk için */
+    }
+
+    .how-pos1 {
+        top: 12px;
+        right: 12px;
+        position: absolute;
+    }
+
+    .mtext-105 {
+        font-weight: 700;
+        font-size: 1.9rem;
+        margin-bottom: 12px;
+        color: #222;
+    }
+
+    .mtext-106 {
+        font-weight: 600;
+        font-size: 1.6rem;
+        color: #e74c3c;
+        display: block;
+        margin-bottom: 18px;
+    }
+
+    p {
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #555;
+        margin-bottom: 25px;
+    }
+
+    .wrap-num-product {
+        align-items: center;
+        gap: 8px;
+    }
+
+    .btn-num-product-down, .btn-num-product-up {
+        width: 36px;
+        height: 36px;
+        font-size: 20px;
+        line-height: 36px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .num-product {
+        width: 50px;
+        height: 36px;
+        font-size: 16px;
+        text-align: center;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        margin: 0 6px;
+    }
+
+    .js-addcart-detail {
+        padding: 10px 28px;
+        font-size: 1rem;
+        border-radius: 6px;
+    }
+
+    .flex-w.flex-m > a {
+        font-size: 16px;
+        margin-right: 12px;
+        color: #555;
+    }
+
+        .flex-w.flex-m > a:hover {
+            color: #e74c3c;
+        }
+
+    .p-r-50 {
+        padding-right: 30px !important;
+    }
+
+    
+   
+
+    .mtext-105 {
+        font-size: 1.5rem;
+    }
+
+    .mtext-106 {
+        font-size: 1.3rem;
+    }
+
+    }
+</style>
+
+
+
