@@ -78,7 +78,7 @@ Gmail SMTP üzerinden gönderim yapılır ve uygulama şifresi ile güvenli bağ
 
 ### 🛍️ Ürün Önizleme ve Detay
 
-| Ürün Önizleme 1 | Ürün Önizleme 2 | Ürün Detay |
+| Ürün Önizleme | Ürün Detay 1 | Ürün Detay 2|
 |:---------------:|:---------------:|:-----------:|
 | ![Ürün1](mongoimages/3.png) | ![Ürün2](mongoimages/4.png) | ![Detay](mongoimages/5.png) |
 
