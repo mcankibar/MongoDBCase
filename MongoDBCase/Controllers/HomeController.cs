@@ -98,9 +98,9 @@ namespace MongoDBCase.Controllers
         {
             try
             {
-                var fromAddress = new MailAddress("testermestermemo@gmail.com", "Eticaret Mehmet");
+                var fromAddress = new MailAddress("tesrmemo@gmail.com", "Eticaret Mehmet");
                 var toAddress = new MailAddress(toEmail);
-                const string fromPassword = "swxbipyyfkrstkkn"; // Gmail için uygulama şifresi kullan
+                const string fromPassword = "yyfkrstkkn"; // Gmail için uygulama şifresi kullan
                 const string subject = "Hoşgeldiniz! %20 İndirim Kodunuz";
 
                 string body = $@"
