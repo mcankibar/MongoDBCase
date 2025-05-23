@@ -1,3 +1,6 @@
+<p align="center">
+  <img src="mongoimages/9.png" alt="MongoDB Logo" width="150"/>
+</p>
 # 🛒 MongoDBCase E-Ticaret Web Uygulaması
 
 Bu proje, MongoDB veritabanı ve ASP.NET Core MVC mimarisi kullanılarak geliştirilmiş, modern bir e-ticaret web uygulamasıdır.  
