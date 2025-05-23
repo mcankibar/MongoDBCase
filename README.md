@@ -84,7 +84,7 @@ Gmail SMTP üzerinden gönderim yapılır ve uygulama şifresi ile güvenli bağ
 
 ### 🛠️ Admin Panel Ekranları
 
-| Slider Yönetimi | Ürün Ekleme | Kategori Güncelleme |
+| Ürün Yönetimi | Ürün Güncelleme | Slider Yönetimi |
 |:---------------:|:------------:|:--------------------:|
 | ![AdminSlider](mongoimages/6.png) | ![AdminÜrün](mongoimages/7.png) | ![AdminKategori](mongoimages/8.png) |
 
