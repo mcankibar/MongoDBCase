@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="mongoimages/10.png" alt="MongoDB Logo" width="150"/>
+  <img src="mongoimages/10.png" alt="MongoDB Logo" width="300" height="100"/>
 </p>
 # 🛒 MongoDBCase E-Ticaret Web Uygulaması
 
