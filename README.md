@@ -34,9 +34,10 @@ Admin paneli üzerinden ürün, kategori ve slider yönetimi yapılabilir.
 
 ### 🔹 MongoDB Veri Yapısı
 
-MongoDB'de 3 ana koleksiyon kullanıldı:
+MongoDB'de 4 ana koleksiyon kullanıldı:
 
-- `Products` (ProductId, ProductName, Price, Description, CategoryId)
+- `Products` (ProductId, ProductName, Price, Description, CategoryId,List<ProductImage>)
+- `ProductImages` (ProductImageId, ProductImageUrl)
 - `Categories` (CategoryId, CategoryName)
 - `Sliders` (SliderId, Title, ImageUrl)
 
