@@ -53,7 +53,7 @@ Gmail SMTP üzerinden gönderim yapılır ve uygulama şifresi ile güvenli bağ
 - E-posta formatı: `Merhabalar [isim], kodunuz: ABCD1234`
 - Kodlar rastgele üretilir (8 karakter alfanümerik)
 - `SmtpClient` kullanılmıştır (alternatif: `MailKit`)
-
+| ![Email](mongoimages/11.png) |
 ---
 
 ## 🧪 Kullanılan Teknolojiler
